@@ -24,36 +24,23 @@ class StringProcessor {
 
     public void processText() {
         StringBuilder result = new StringBuilder();
-        StringBuilder currentWord = new StringBuilder();
+        // Splitting the input text into words using regular expression that considers non-alphanumeric characters
+        String[] words = inputText.split("\\W+");
 
-        for (char c : inputText.toCharArray()) {
-            if (Character.isLetterOrDigit(c)) {
-                currentWord.append(c);
-                if (currentWord.length() == maxLineLength) {
-                    addWordToResult(result, currentWord);
-                }
-            } else if (currentWord.length() > 0) {
-                addWordToResult(result, currentWord);
+        int currentLineLength = 0;
+        for (String word : words) {
+            if (currentLineLength == 0) {
+                result.append(word);
+                currentLineLength += word.length();
+            } else if (currentLineLength + word.length() + 1 <= maxLineLength) {
+                result.append(" ").append(word);
+                currentLineLength += word.length() + 1;
+            } else {
+                result.append("\n").append(word);
+                currentLineLength = word.length();
             }
         }
 
-        if (currentWord.length() > 0) {
-            addWordToResult(result, currentWord);
-        }
-
         processedText = result.toString();
-    }
-
-    private void addWordToResult(StringBuilder result, StringBuilder word) {
-        if (result.length() > 0 && result.charAt(result.length() - 1) != '\n') {
-            result.append(" ");
-        }
-
-        if (result.length() + word.length() > maxLineLength) {
-            result.append("\n");
-        }
-
-        result.append(word);
-        word.setLength(0);
     }
 }

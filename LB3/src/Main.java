@@ -6,7 +6,7 @@ public class Main {
 
         System.out.println("Введіть максимальну довжину рядка:");
         int maxLineLength = scanner.nextInt();
-        scanner.nextLine(); // Очищуємо буфер після nextInt()
+        scanner.nextLine(); // consume newline
 
         System.out.println("Введіть текст:");
         String text = scanner.nextLine();
