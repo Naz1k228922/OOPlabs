@@ -1,41 +1,52 @@
 import java.util.Scanner;
 
-class StringProcessor {
+class StringProcessor
+{
     private String inputText;
     private String processedText;
     private int maxLineLength;
 
-    public StringProcessor(String inputText, int maxLineLength) {
+    public StringProcessor(String inputText, int maxLineLength)
+    {
         this.inputText = inputText;
         this.maxLineLength = maxLineLength;
     }
 
-    public void setInputText(String inputText) {
+    public void setInputText(String inputText)
+    {
         this.inputText = inputText;
     }
 
-    public String getInputText() {
+    public String getInputText()
+    {
         return inputText;
     }
 
-    public String getProcessedText() {
+    public String getProcessedText()
+    {
         return processedText;
     }
 
-    public void processText() {
+    public void processText()
+    {
         StringBuilder result = new StringBuilder();
-        // Splitting the input text into words using regular expression that considers non-alphanumeric characters
         String[] words = inputText.split("\\W+");
 
         int currentLineLength = 0;
-        for (String word : words) {
-            if (currentLineLength == 0) {
+        for (String word : words)
+        {
+            if (currentLineLength == 0)
+            {
                 result.append(word);
                 currentLineLength += word.length();
-            } else if (currentLineLength + word.length() + 1 <= maxLineLength) {
+            }
+            else if (currentLineLength + word.length() + 1 <= maxLineLength)
+            {
                 result.append(" ").append(word);
                 currentLineLength += word.length() + 1;
-            } else {
+            }
+            else
+            {
                 result.append("\n").append(word);
                 currentLineLength = word.length();
             }
