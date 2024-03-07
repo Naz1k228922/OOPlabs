@@ -1,16 +1,16 @@
 public class Song
 {
-    public int id;
+    public Integer id;
     public String title;
     public String artist;
     public String album;
     public String genre;
     public String lyricsAuthor;
     public String language;
-    public int releaseYear;
-    public double length;
+    public Integer releaseYear;
+    public Double length;
 
-    public Song(int id, String title, String artist, String album, String genre, String lyricsAuthor, String language, int releaseYear, double length)
+    public Song(Integer id, String title, String artist, String album, String genre, String lyricsAuthor, String language, Integer releaseYear, Double length)
     {
         this.id = id;
         this.title = title;
@@ -59,12 +59,12 @@ public class Song
         return language;
     }
 
-    public int getReleaseYear()
+    public Integer getReleaseYear()
     {
         return releaseYear;
     }
 
-    public double getLength()
+    public Double getLength()
     {
         return length;
     }

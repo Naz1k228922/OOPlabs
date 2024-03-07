@@ -33,9 +33,9 @@ public class Main
                 break;
             case "releaseYear":
                 System.out.println("Enter start year:");
-                int startYear = (int) Math.round(scanner.nextDouble()); // Округлення до цілого числа
+                Integer startYear = (int) Math.round(scanner.nextDouble()); // Округлення до цілого числа
                 System.out.println("Enter end year:");
-                int endYear = (int) Math.round(scanner.nextDouble()); // Округлення до цілого числа
+                Integer endYear = (int) Math.round(scanner.nextDouble()); // Округлення до цілого числа
                 printSongsByReleaseYearRange(startYear, endYear);
                 break;
             default:
@@ -67,7 +67,7 @@ public class Main
         }
     }
 
-    public void printSongsByReleaseYearRange(int startYear, int endYear)
+    public void printSongsByReleaseYearRange(Integer startYear, Integer endYear)
     {
         System.out.println("Songs released between " + startYear + " and " + endYear + ":");
         for (Song song : songs)
